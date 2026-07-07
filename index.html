@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio — Presença Pro · Estrutura, Posicionamento & Presença Digital</title>
+<meta name="description" content="Conheça os projetos, cases e a metodologia da Presença Pro para pequenos negócios. Estruturação, posicionamento e presença digital.">
+<meta property="og:title" content="Portfólio — Presença Pro">
+<meta property="og:description" content="Projetos, cases e metodologia para pequenos negócios.">
+<meta property="og:image" content="https://res.cloudinary.com/dslj0yjkm/image/upload/v1782584522/preview-ajustado-logo-v2_tzq4kl.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --preto:#090414;--roxo:#A863FF;--roxo-claro:#A863FF;--roxo-escuro:#5415A3;--roxo-med:#9C5BFF;
+  --branco:#FFFFFF;--bg2:#150D27;--bg3:#1A1130;
+  --line:rgba(168,99,255,.18);--line-forte:rgba(168,99,255,.35);
+  --gold:#C89B4A;
+  --font-d:'Playfair Display',serif;
+  --font-b:'Inter',sans-serif;
+  --font-logo:'Montserrat',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--preto);color:var(--branco);font-family:var(--font-b);font-weight:300;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* ── ANIMAÇÕES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineGrow{from{width:0}to{width:50px}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* ── NAV ── */
+.nav-master{
+  position:sticky;top:0;z-index:200;
+  background:rgba(9,4,20,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;
+  min-height:72px;gap:20px;
+}
+.nav-logo img{height:44px;width:auto;display:block}
+.nav-links{display:flex;gap:4px}
+.nav-link{
+  font-size:13px;font-weight:600;letter-spacing:0.04em;
+  padding:10px 16px;color:rgba(255,255,255,0.5);
+  border:1px solid transparent;transition:all .2s;
+}
+.nav-link:hover,.nav-link.active{
+  color:#fff;background:rgba(168,99,255,0.10);border-color:var(--line);
+}
+.nav-cta{
+  background:var(--roxo);color:#fff;font-size:13px;font-weight:700;
+  padding:11px 24px;transition:background .2s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--roxo-escuro)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--roxo-claro)}
+.mobile-menu{
+  display:none;flex-direction:column;
+  background:rgba(9,4,20,0.98);border-bottom:1px solid var(--line);
+  padding:12px 32px 20px;
+}
+.mobile-menu a{padding:14px 0;font-size:14px;font-weight:600;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-menu.open{display:flex}
+
+/* ── HERO ── */
+.hero{
+  padding:100px 32px 80px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 65% 55% at 50% 30%,rgba(168,99,255,0.12) 0%,transparent 65%),
+    radial-gradient(ellipse 40% 35% at 85% 85%,rgba(84,21,163,0.10) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line-forte);color:var(--roxo-claro);
+  padding:10px 24px;font-size:11px;letter-spacing:0.3em;
+  text-transform:uppercase;margin-bottom:32px;
+}
+.hero h1{
+  font-family:var(--font-d);font-size:clamp(38px,6vw,64px);
+  font-weight:600;line-height:1.1;margin-bottom:20px;
+}
+.hero h1 em{font-style:italic;color:var(--roxo)}
+.hero-sub{
+  font-size:clamp(16px,2vw,18px);color:rgba(255,255,255,0.5);
+  max-width:580px;margin:0 auto 48px;line-height:1.7;
+}
+.hero-line{width:50px;height:2px;background:linear-gradient(90deg,var(--roxo),var(--gold));margin:0 auto}
+
+/* ── IMAGEM HERO BANNER ── */
+.hero-banner{
+  max-width:1100px;margin:60px auto 0;padding:0 32px;
+  position:relative;
+}
+.hero-banner img{
+  width:100%;height:380px;object-fit:cover;object-position:center;
+  filter:brightness(0.65);
+}
+.hero-banner-overlay{
+  position:absolute;inset:0 32px;
+  background:linear-gradient(to right,rgba(9,4,20,0.7) 0%,transparent 40%,transparent 60%,rgba(9,4,20,0.7) 100%),
+             linear-gradient(to bottom,transparent 50%,rgba(9,4,20,0.8) 100%);
+}
+.hero-banner-badge{
+  position:absolute;bottom:24px;left:64px;
+  display:flex;gap:8px;
+}
+.hbb{
+  background:rgba(9,4,20,0.85);backdrop-filter:blur(8px);
+  border:1px solid var(--line-forte);padding:8px 16px;
+  font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--roxo-claro);
+}
+
+/* ── SECTION BASE ── */
+.section{padding:90px 32px;border-top:1px solid var(--line)}
+.section.bg2{background:var(--bg2)}
+.section.bg3{background:var(--bg3)}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{
+  display:block;font-size:11px;letter-spacing:0.4em;
+  color:var(--roxo);text-transform:uppercase;margin-bottom:16px;font-weight:700;
+}
+.section h2{
+  font-family:var(--font-d);font-size:clamp(28px,4.5vw,44px);
+  font-weight:600;margin-bottom:48px;line-height:1.2;
+}
+.section h2 em{font-style:italic;color:var(--roxo)}
+.section-intro{
+  font-size:16px;color:rgba(255,255,255,0.5);
+  line-height:1.8;max-width:700px;margin-bottom:52px;
+}
+
+/* ── SOBRE COM IMAGEM ── */
+.sobre-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+}
+.sobre-foto{position:relative;overflow:hidden}
+.sobre-foto img{
+  width:100%;height:420px;object-fit:cover;object-position:top center;
+  filter:brightness(0.75);transition:transform .6s ease;
+}
+.sobre-foto:hover img{transform:scale(1.03)}
+.sobre-foto-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 50%,rgba(9,4,20,0.85) 100%);
+}
+.sobre-foto-caption{
+  position:absolute;bottom:20px;left:20px;right:20px;
+}
+.sobre-foto-caption span{
+  font-size:11px;font-weight:700;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--roxo-claro);
+}
+.sobre-texto p{
+  font-size:15px;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:18px;
+}
+.sobre-texto strong{color:#fff;font-weight:600}
+.quote-box{
+  border-left:2px solid var(--roxo);padding:16px 0 16px 24px;margin:28px 0;
+  background:rgba(168,99,255,0.04);padding:16px 20px;
+}
+.quote-box p{
+  font-family:var(--font-d);font-style:italic;font-size:17px;
+  color:rgba(255,255,255,0.8);line-height:1.6;margin:0;
+}
+
+/* NUMERAIS SOBRE */
+.sobre-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin-bottom:32px}
+.sobre-num{padding:20px 16px;text-align:center;border-right:1px solid var(--line)}
+.sobre-num:last-child{border-right:none}
+.sobre-num strong{
+  display:block;font-family:var(--font-d);font-size:30px;
+  color:var(--roxo-claro);font-weight:600;margin-bottom:4px;
+}
+.sobre-num span{font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase;line-height:1.3}
+
+/* ── TRAJETÓRIA ── */
+.traj-list{display:flex;flex-direction:column;gap:0}
+.traj-item{
+  display:grid;grid-template-columns:140px 1fr;gap:24px;
+  padding:28px 0;border-bottom:1px solid var(--line);
+  transition:background .2s;
+}
+.traj-item:hover{background:rgba(168,99,255,0.03)}
+.traj-item:last-child{border-bottom:none}
+.traj-periodo{
+  font-family:var(--font-d);font-size:15px;
+  color:var(--gold);font-weight:600;padding-top:2px;
+}
+.traj-content h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
+.traj-content p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6}
+
+/* ── PILARES ── */
+.pilares-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.pilar{
+  padding:28px 20px;border:1px solid var(--line);margin:-1px 0 0 -1px;
+  transition:background .25s,border-color .25s;
+}
+.pilar:hover{background:rgba(168,99,255,0.05);border-color:var(--line-forte)}
+.pilar .check{color:var(--roxo);font-size:18px;margin-bottom:10px;display:block}
+.pilar h4{font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:0.02em}
+.pilar p{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.55}
+
+/* ── NICHOS ── */
+.nichos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.nicho-tag{
+  border:1px solid var(--line);padding:18px 20px;
+  font-size:14px;color:rgba(255,255,255,0.65);text-align:center;
+  transition:border-color .2s,background .2s;
+}
+.nicho-tag:hover{border-color:var(--line-forte);background:rgba(168,99,255,0.04)}
+.nicho-tag strong{color:var(--roxo)}
+.dor-box{
+  margin-top:40px;background:rgba(168,99,255,0.06);
+  border:1px solid var(--line-forte);padding:32px;text-align:center;
+}
+.dor-box p{
+  font-family:var(--font-d);font-style:italic;font-size:20px;
+  color:#fff;line-height:1.5;
+}
+
+/* ── ENTREGÁVEIS ── */
+.entregaveis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ent-card{
+  border:1px solid var(--line);padding:28px 22px;
+  transition:border-color .2s,transform .2s;
+}
+.ent-card:hover{border-color:var(--line-forte);transform:translateY(-3px)}
+.ent-num{
+  font-family:var(--font-d);font-size:34px;font-weight:600;
+  color:rgba(168,99,255,0.22);line-height:1;margin-bottom:14px;
+}
+.ent-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.ent-card p{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.55}
+
+/* ── IMAGEM CONSULTORIA ── */
+.img-section{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:3px;
+}
+.img-card{position:relative;overflow:hidden;aspect-ratio:4/3}
+.img-card img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(0.7);
+  transition:transform .5s ease,filter .5s ease;
+  display:block;
+}
+.img-card:hover img{transform:scale(1.05);filter:brightness(0.85)}
+.img-card-label{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(9,4,20,0.85) 0%,transparent 55%);
+  display:flex;align-items:flex-end;padding:20px;
+}
+.img-card-label span{
+  font-size:11px;font-weight:700;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--roxo-claro);
+  border:1px solid rgba(168,99,255,0.4);padding:5px 12px;
+}
+
+/* ── CRONOGRAMA ── */
+.crono-list{display:flex;flex-direction:column;gap:0}
+.crono-item{
+  display:grid;grid-template-columns:140px 1fr;gap:24px;
+  padding:28px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.crono-item:last-child{border-bottom:none}
+.crono-fase{
+  font-family:var(--font-d);font-size:13px;font-weight:600;
+  color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;padding-top:2px;
+}
+.crono-content h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:5px}
+.crono-content p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65}
+
+/* ── PLANOS ── */
+.planos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plano-card{
+  border:1px solid var(--line);padding:36px 28px;
+  display:flex;flex-direction:column;gap:14px;
+  transition:border-color .2s;
+}
+.plano-card:hover{border-color:var(--line-forte)}
+.plano-card.destaque{
+  border-color:var(--gold);
+  background:linear-gradient(135deg,rgba(200,155,74,0.07),rgba(168,99,255,0.04));
+}
+.plano-badge{
+  display:inline-block;background:var(--gold);color:#000;
+  font-size:10px;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;
+  padding:4px 14px;width:fit-content;margin-bottom:4px;
+}
+.plano-nome{font-family:var(--font-d);font-size:22px;font-weight:600}
+.plano-old{font-size:13px;color:rgba(255,255,255,0.3);text-decoration:line-through}
+.plano-off{
+  font-size:10px;color:var(--gold);font-weight:800;letter-spacing:0.1em;
+  background:rgba(200,155,74,0.12);padding:2px 8px;
+}
+.plano-preco{
+  font-family:var(--font-d);font-size:42px;font-weight:600;
+  color:var(--roxo-claro);line-height:1;
+}
+.plano-card.destaque .plano-preco{color:var(--gold)}
+.plano-includes{display:flex;flex-direction:column;gap:8px;flex:1}
+.plano-includes span{
+  font-size:13px;color:rgba(255,255,255,0.65);
+  display:flex;gap:8px;align-items:flex-start;
+}
+.plano-includes span::before{content:'✓';color:var(--roxo);flex-shrink:0;font-weight:800}
+.plano-card.destaque .plano-includes span::before{color:var(--gold)}
+.plano-btn{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--roxo);color:#fff;font-size:13px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;padding:16px;
+  transition:background .2s;margin-top:auto;
+}
+.plano-btn:hover{background:var(--roxo-escuro)}
+.plano-card.destaque .plano-btn{background:var(--gold);color:#000}
+.plano-card.destaque .plano-btn:hover{opacity:0.88}
+
+/* ── CTA INTERMEDIÁRIO ── */
+.cta-mid{
+  padding:80px 32px;text-align:center;
+  background:linear-gradient(135deg,rgba(168,99,255,0.08),transparent 60%);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.cta-mid h2{
+  font-family:var(--font-d);font-size:clamp(26px,4vw,42px);
+  font-weight:600;line-height:1.2;margin-bottom:14px;
+}
+.cta-mid h2 em{font-style:italic;color:var(--roxo)}
+.cta-mid p{
+  font-size:16px;color:rgba(255,255,255,0.5);
+  max-width:500px;margin:0 auto 36px;line-height:1.7;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--roxo);color:#fff;font-weight:700;
+  font-size:14px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:18px 44px;transition:background .2s;
+}
+.btn-primary:hover{background:var(--roxo-escuro)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--line-forte);color:rgba(255,255,255,0.75);
+  font-weight:600;font-size:14px;letter-spacing:0.06em;
+  padding:17px 32px;transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--roxo);color:#fff}
+
+/* ── FOOTER ── */
+footer{
+  padding:56px 32px;border-top:1px solid var(--line);
+  background:rgba(9,4,20,0.98);text-align:center;
+}
+.footer-logo img{height:44px;margin:0 auto 20px;opacity:.85}
+footer p{font-size:12px;letter-spacing:0.1em;color:rgba(255,255,255,0.3)}
+.footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:20px}
+.footer-links a{
+  font-size:12px;font-weight:600;letter-spacing:0.1em;
+  color:rgba(255,255,255,0.4);text-transform:uppercase;
+  padding:8px 16px;border:1px solid var(--line);
+  transition:all .2s;
+}
+.footer-links a:hover{color:var(--roxo-claro);border-color:var(--line-forte)}
+
+/* ── RESPONSIVO ── */
+@media(max-width:960px){
+  .nav-links,.nav-cta{display:none}
+  .nav-hamburger{display:flex}
+  .sobre-grid{grid-template-columns:1fr}
+  .sobre-foto{display:none}
+  .pilares-grid{grid-template-columns:repeat(2,1fr)}
+  .entregaveis-grid{grid-template-columns:repeat(2,1fr)}
+  .planos-grid{grid-template-columns:1fr}
+  .img-section{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .pilares-grid{grid-template-columns:1fr}
+  .entregaveis-grid{grid-template-columns:1fr}
+  .nichos-grid{grid-template-columns:repeat(2,1fr)}
+  .traj-item,.crono-item{grid-template-columns:1fr;gap:8px}
+  .sobre-nums{grid-template-columns:1fr}
+  .sobre-num{border-right:none;border-bottom:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<header class="nav-master">
+  <div class="nav-inner">
+    <a href="https://prosys-web.github.io/presenca-pro/" class="nav-logo">
+      <img src="https://res.cloudinary.com/dslj0yjkm/image/upload/v1782608878/logo_colorida_q8ewmc.png" alt="Presença Pro">
+    </a>
+    <nav class="nav-links">
+      <a class="nav-link" href="https://prosys-web.github.io/presenca-pro/">Início</a>
+      <a class="nav-link" href="https://prosys-web.github.io/presenca-pro/#sites">Soluções</a>
+      <a class="nav-link active" href="#">Portfólio</a>
+      <a class="nav-link" href="https://prosys-web.github.io/presenca-pro-afiliados/">Parceiros</a>
+      <a class="nav-link" href="https://prosys-web.github.io/presenca-pro/#afiliados">Contato</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/5585994249656?text=Ol%C3%A1!%20Vim%20pelo%20portf%C3%B3lio%20da%20Presen%C3%A7a%20Pro%20e%20quero%20saber%20mais." target="_blank">Falar no WhatsApp</a>
+    <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="https://prosys-web.github.io/presenca-pro/" onclick="closeMenu()">Início</a>
+  <a href="https://prosys-web.github.io/presenca-pro/#sites" onclick="closeMenu()">Soluções</a>
+  <a href="#" onclick="closeMenu()">Portfólio</a>
+  <a href="https://prosys-web.github.io/presenca-pro-afiliados/" target="_blank">Parceiros</a>
+  <a href="https://wa.me/5585994249656?text=Ol%C3%A1!%20Vim%20pelo%20portf%C3%B3lio%20e%20quero%20saber%20mais." target="_blank">Falar no WhatsApp</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-inner reveal">
+    <div class="hero-badge">✦ Presença Pro · Portfólio Institucional</div>
+    <h1>Estruturamos negócios<br><em>do zero ao digital.</em></h1>
+    <p class="hero-sub">Conheça nossa metodologia, trajetória e os projetos desenvolvidos para pequenos negócios em todo o Brasil.</p>
+    <div class="hero-line"></div>
+  </div>
+
+  <!-- BANNER DE IMAGEM -->
+  <div class="hero-banner reveal reveal-delay-1">
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=1400&q=80&auto=format&fit=crop" alt="Reunião estratégica de negócios">
+    <div class="hero-banner-overlay"></div>
+    <div class="hero-banner-badge">
+      <span class="hbb">Estratégia</span>
+      <span class="hbb">Posicionamento</span>
+      <span class="hbb">Presença Digital</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOBRE O IDEALIZADOR ═══ -->
+<section class="section" id="sobre">
+  <div class="section-inner">
+    <span class="section-label reveal">Quem está por trás</span>
+    <h2 class="reveal">Mais de 30 anos construindo <em>estruturas comerciais</em> — agora a serviço de quem está começando.</h2>
+
+    <!-- NUMERAIS -->
+    <div class="sobre-nums reveal">
+      <div class="sobre-num"><strong>30+</strong><span>anos de experiência comercial e financeira</span></div>
+      <div class="sobre-num"><strong>200 mil+</strong><span>vidas em carteiras intermediadas</span></div>
+      <div class="sobre-num"><strong>R$100M+</strong><span>em financiamentos gerenciados</span></div>
+    </div>
+
+    <div class="sobre-grid">
+      <!-- FOTO -->
+      <div class="sobre-foto reveal">
+        <img src="https://res.cloudinary.com/dslj0yjkm/image/upload/v1783383675/Foto_principal_Severo_lvfejo.png" alt="Severo Brito Jr.">
+        <div class="sobre-foto-overlay"></div>
+        <div class="sobre-foto-caption">
+          <span>Severo Brito Jr. · Fundador & Estrategista</span>
+        </div>
+      </div>
+      <!-- TEXTO -->
+      <div class="sobre-texto reveal reveal-delay-1">
+        <p>Executivo comercial com trajetória consolidada nos segmentos <strong>financeiro, saúde e seguros</strong>, com atuação em grandes projetos e corporações nacionais. Estruturou operações comerciais, liderou equipes de alta performance e intermediou carteiras de clientes superiores a <strong>200 mil vidas</strong>.</p>
+        <p>Como <strong>Diretor Comercial Nacional</strong> em rede de assistência médica, geriu equipe de 12 gerentes e diretores regionais. Em instituições financeiras, foi responsável pela implantação de filiais e expansão de carteiras — incluindo o crescimento de uma unidade de <strong>R$ 600 mil para R$ 3 milhões</strong> em financiamentos.</p>
+        <div class="quote-box">
+          <p>"Meu maior patrimônio nunca foi o que eu possuía. Foi aquilo que ninguém conseguiu tirar de mim: o conhecimento adquirido nas vitórias, os aprendizados dos erros e a capacidade de recomeçar."</p>
+        </div>
+        <p>Essa experiência — antes aplicada a corretoras e grandes projetos — hoje move a <strong>Presença Pro</strong>: a mesma estrutura, processo e visão estratégica, agora a serviço de pequenos empreendedores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRAJETÓRIA ═══ -->
+<section class="section bg2" id="trajetoria">
+  <div class="section-inner">
+    <span class="section-label reveal">Trajetória</span>
+    <h2 class="reveal">Experiência aplicada em <em>operações reais.</em></h2>
+    <div class="traj-list">
+      <div class="traj-item reveal">
+        <div class="traj-periodo">2023 — Atual</div>
+        <div class="traj-content"><h4>Fundador — Presença Pro · ProSys Group</h4><p>Agência de estruturação de negócios e presença digital para pequenos empreendedores.</p></div>
+      </div>
+      <div class="traj-item reveal reveal-delay-1">
+        <div class="traj-periodo">2019 — 2023</div>
+        <div class="traj-content"><h4>Diretor Comercial Nacional</h4><p>Rede de assistência médica. Equipe de 12 gerentes e diretores regionais.</p></div>
+      </div>
+      <div class="traj-item reveal reveal-delay-2">
+        <div class="traj-periodo">2016 — 2018</div>
+        <div class="traj-content"><h4>Gerente de Expansão — Instituição Financeira</h4><p>Implantação de filiais e expansão de carteiras. Crescimento de R$600K a R$3M em financiamentos.</p></div>
+      </div>
+      <div class="traj-item reveal reveal-delay-3">
+        <div class="traj-periodo">2009 — 2016</div>
+        <div class="traj-content"><h4>Diretor Comercial — Operações Financeiras</h4><p>Gestão de operações atingindo R$10M mensais em financiamentos e empréstimos.</p></div>
+      </div>
+      <div class="traj-item reveal">
+        <div class="traj-periodo">2003 — 2009</div>
+        <div class="traj-content"><h4>Gestor de Planos de Saúde</h4><p>Gestão de carteiras e expansão comercial no setor de saúde suplementar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IMAGENS CONSULTORIA ═══ -->
+<div class="img-section">
+  <div class="img-card">
+    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80&auto=format&fit=crop" alt="Planejamento estratégico">
+    <div class="img-card-label"><span>Diagnóstico</span></div>
+  </div>
+  <div class="img-card">
+    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80&auto=format&fit=crop" alt="Reunião de negócios">
+    <div class="img-card-label"><span>Estruturação</span></div>
+  </div>
+  <div class="img-card">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format&fit=crop" alt="Resultado digital">
+    <div class="img-card-label"><span>Resultado</span></div>
+  </div>
+</div>
+
+<!-- ═══ CTA INTERMEDIÁRIO ═══ -->
+<div class="cta-mid">
+  <h2 class="reveal">Gostou do que <em>viu?</em></h2>
+  <p class="reveal reveal-delay-1">Vamos conversar. Uma orientação inicial gratuita de 15 minutos pode ser o começo da estruturação do seu negócio.</p>
+  <a class="btn-primary reveal reveal-delay-2" href="https://wa.me/5585994249656?text=Ol%C3%A1!%20Vim%20pelo%20portf%C3%B3lio%20e%20quero%20solicitar%20uma%20demonstra%C3%A7%C3%A3o." target="_blank">Solicitar demonstração →</a>
+</div>
+
+<!-- ═══ POSICIONAMENTO / PILARES ═══ -->
+<section class="section" id="posicionamento">
+  <div class="section-inner">
+    <span class="section-label reveal">Posicionamento</span>
+    <h2 class="reveal">Agência de <em>crescimento e inteligência comercial.</em></h2>
+    <div class="pilares-grid">
+      <div class="pilar reveal"><span class="check">✓</span><h4>Estratégia</h4><p>Direcionamento claro de onde o negócio quer chegar.</p></div>
+      <div class="pilar reveal reveal-delay-1"><span class="check">✓</span><h4>Posicionamento</h4><p>Como a marca é percebida pelo público certo.</p></div>
+      <div class="pilar reveal reveal-delay-2"><span class="check">✓</span><h4>Marca</h4><p>Identidade visual e verbal coerente.</p></div>
+      <div class="pilar reveal reveal-delay-3"><span class="check">✓</span><h4>Organização Comercial</h4><p>Processos e canais de venda estruturados.</p></div>
+      <div class="pilar reveal"><span class="check">✓</span><h4>Tecnologia</h4><p>Ferramentas certas para operar e escalar.</p></div>
+      <div class="pilar reveal reveal-delay-1"><span class="check">✓</span><h4>Processos</h4><p>Rotinas que sustentam o crescimento.</p></div>
+      <div class="pilar reveal reveal-delay-2"><span class="check">✓</span><h4>Presença Digital</h4><p>Site, redes e agenda funcionando em conjunto.</p></div>
+      <div class="pilar reveal reveal-delay-3"><span class="check">✓</span><h4>Direcionamento</h4><p>Plano de implantação com prazos definidos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PARA QUEM ═══ -->
+<section class="section bg2" id="nichos">
+  <div class="section-inner">
+    <span class="section-label reveal">Para quem construímos</span>
+    <h2 class="reveal">Quem está começando — ou recomeçando — <em>um negócio.</em></h2>
+    <div class="nichos-grid reveal">
+      <div class="nicho-tag"><strong>Salões</strong> & Barbearias</div>
+      <div class="nicho-tag"><strong>Estética</strong> & Beleza</div>
+      <div class="nicho-tag"><strong>Lojas</strong> online</div>
+      <div class="nicho-tag"><strong>Advogados</strong> & Psicólogos</div>
+      <div class="nicho-tag"><strong>Nutricionistas</strong> & Corretores</div>
+      <div class="nicho-tag"><strong>Autores</strong> independentes</div>
+    </div>
+    <div class="dor-box reveal">
+      <p>"Tenho um produto bom, mas não sei como me apresentar profissionalmente — nem como aparecer para meus clientes."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ENTREGÁVEIS ═══ -->
+<section class="section" id="entregaveis">
+  <div class="section-inner">
+    <span class="section-label reveal">O produto</span>
+    <h2 class="reveal">Diagnóstico de Negócio <em>+ Plano de Implantação.</em></h2>
+    <div class="entregaveis-grid">
+      <div class="ent-card reveal"><div class="ent-num">01</div><h4>Identidade da marca</h4><p>Nome, logo inicial e elementos visuais de base.</p></div>
+      <div class="ent-card reveal reveal-delay-1"><div class="ent-num">02</div><h4>Posicionamento</h4><p>Como a marca se comunica e se diferencia.</p></div>
+      <div class="ent-card reveal reveal-delay-2"><div class="ent-num">03</div><h4>Nome</h4><p>Sugestão de nome quando o negócio ainda não tem.</p></div>
+      <div class="ent-card reveal reveal-delay-3"><div class="ent-num">04</div><h4>Público-alvo</h4><p>Definição clara de pra quem o negócio vende.</p></div>
+      <div class="ent-card reveal"><div class="ent-num">05</div><h4>Presença digital</h4><p>Site profissional completo, entregue em 48h.</p></div>
+      <div class="ent-card reveal reveal-delay-1"><div class="ent-num">06</div><h4>Canais de venda</h4><p>Onde e como captar os primeiros clientes.</p></div>
+      <div class="ent-card reveal reveal-delay-2"><div class="ent-num">07</div><h4>Plano comercial</h4><p>Precificação e estrutura de oferta inicial.</p></div>
+      <div class="ent-card reveal reveal-delay-3"><div class="ent-num">08</div><h4>Ferramentas</h4><p>Tecnologia certa para operar desde o primeiro dia.</p></div>
+      <div class="ent-card reveal"><div class="ent-num">09</div><h4>Cronograma de implantação</h4><p>Prazos e etapas claras do início ao lançamento.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMO FUNCIONA ═══ -->
+<section class="section bg2" id="como-funciona">
+  <div class="section-inner">
+    <span class="section-label reveal">Como funciona</span>
+    <h2 class="reveal">Do diagnóstico ao <em>lançamento.</em></h2>
+    <div class="crono-list">
+      <div class="crono-item reveal">
+        <div class="crono-fase">Etapa 1</div>
+        <div class="crono-content"><h4>Anamnese de Negócio</h4><p>Formulário estruturado pelo WhatsApp. Devolutiva com diagnóstico completo — quem é o cliente, pra quem vende e qual o diferencial.</p></div>
+      </div>
+      <div class="crono-item reveal reveal-delay-1">
+        <div class="crono-fase">Etapa 2</div>
+        <div class="crono-content"><h4>Identidade & Posicionamento</h4><p>Nome (se necessário), sugestão de logo, definição de público-alvo, proposta de valor em uma frase e tom de comunicação.</p></div>
+      </div>
+      <div class="crono-item reveal reveal-delay-2">
+        <div class="crono-fase">Etapa 3</div>
+        <div class="crono-content"><h4>Estrutura Inicial do Negócio</h4><p>Canais de venda, plano comercial básico, precificação e roteiro de primeiros passos.</p></div>
+      </div>
+      <div class="crono-item reveal reveal-delay-3">
+        <div class="crono-fase">Etapa 4</div>
+        <div class="crono-content"><h4>Presença Digital</h4><p>Site profissional entregue em 48h, Google Meu Negócio configurado, WhatsApp Business ativado.</p></div>
+      </div>
+      <div class="crono-item reveal">
+        <div class="crono-fase">Etapa 5</div>
+        <div class="crono-content"><h4>Plano de Implantação</h4><p>Cronograma com prazos, responsáveis e próximos passos. Manual de primeiros passos entregue ao cliente.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PLANOS ═══ -->
+<section class="section" id="planos">
+  <div class="section-inner">
+    <span class="section-label reveal">Conheça nossos planos</span>
+    <h2 class="reveal">Escolha o plano <em>certo para o seu momento.</em></h2>
+    <div class="planos-grid">
+      <div class="plano-card reveal">
+        <div class="plano-nome">Essencial</div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span class="plano-old">R$ 829</span>
+          <span class="plano-off">40% OFF</span>
+        </div>
+        <div class="plano-preco">R$ 497</div>
+        <div class="plano-includes">
+          <span>Anamnese de Negócio</span>
+          <span>Identidade & Posicionamento</span>
+          <span>Site profissional em 48h</span>
+        </div>
+        <a class="plano-btn" href="https://wa.me/5585994249656?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Essencial%20(R%24497)." target="_blank">Quero esse plano</a>
+      </div>
+      <div class="plano-card destaque reveal reveal-delay-1">
+        <div class="plano-badge">Mais indicado</div>
+        <div class="plano-nome">Completo</div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span class="plano-old">R$ 1.329</span>
+          <span class="plano-off">40% OFF</span>
+        </div>
+        <div class="plano-preco">R$ 797</div>
+        <div class="plano-includes">
+          <span>Tudo do plano Essencial</span>
+          <span>Diagnóstico + Plano de Implantação</span>
+          <span>Manual de Primeiros Passos</span>
+        </div>
+        <a class="plano-btn" href="https://wa.me/5585994249656?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Completo%20(R%24797)." target="_blank">Quero esse plano</a>
+      </div>
+      <div class="plano-card reveal reveal-delay-2">
+        <div class="plano-nome">Premium</div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span class="plano-old">R$ 1.997</span>
+          <span class="plano-off">40% OFF</span>
+        </div>
+        <div class="plano-preco">R$ 1.197</div>
+        <div class="plano-includes">
+          <span>Tudo do plano Completo</span>
+          <span>30 dias de suporte via WhatsApp</span>
+          <span>3 artes para Instagram</span>
+        </div>
+        <a class="plano-btn" href="https://wa.me/5585994249656?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Premium%20(R%241.197)." target="_blank">Quero esse plano</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<div class="cta-mid">
+  <h2 class="reveal">Quero uma <em>demonstração.</em></h2>
+  <p class="reveal reveal-delay-1">Vamos entender o seu momento e indicar o melhor caminho — sem compromisso.</p>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap" class="reveal reveal-delay-2">
+    <a class="btn-primary" href="https://wa.me/5585994249656?text=Ol%C3%A1!%20Quero%20solicitar%20uma%20demonstra%C3%A7%C3%A3o%20gratuita." target="_blank">Solicitar demonstração →</a>
+    <a class="btn-ghost" href="https://prosys-web.github.io/presenca-pro/#sites">Ver planos de site</a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://res.cloudinary.com/dslj0yjkm/image/upload/v1782608878/logo_colorida_q8ewmc.png" alt="Presença Pro">
+  </div>
+  <p>Estrutura · Posicionamento · Presença Digital</p>
+  <p style="margin-top:6px">presenca.proagencia@gmail.com · (85) 99424-9656 · Fortaleza, CE</p>
+  <div class="footer-links">
+    <a href="https://prosys-web.github.io/presenca-pro/">Início</a>
+    <a href="https://wa.me/5585994249656" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/presencapro.agencia" target="_blank">Instagram</a>
+    <a href="#">Portfólio</a>
+    <a href="https://prosys-web.github.io/presenca-pro-afiliados/" target="_blank">Programa de Parceiros</a>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+document.getElementById('hamburger').onclick = function(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+};
+function closeMenu(){ document.getElementById('mobileMenu').classList.remove('open'); }
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
